@@ -10,14 +10,16 @@ module.exports = {
             nome,
             email,
             senhaHash,
-            emailVerificado
-          ) VALUES (?, ?, ?, ?)
+            emailVerificado,
+            cargo
+          ) VALUES (?, ?, ?, ?, ?)
         `,
         [
           usuario.nome,
           usuario.email,
           usuario.senhaHash,
           usuario.emailVerificado,
+          usuario.cargo,
         ],
         (erro) => {
           if (erro) {
@@ -112,6 +114,21 @@ module.exports = {
         (erro) => {
           if (erro) {
             return reject("Erro ao modificar a verificação de email!");
+          }
+          return resolve();
+        }
+      );
+    });
+  },
+
+  atualizarSenha: (senha, id) => {
+    return new Promise((resolve, reject) => {
+      db.run(
+        `UPDATE usuarios SET senhaHash =  ? WHERE id = ?`,
+        [senha, id],
+        (erro) => {
+          if (erro) {
+            return reject("Erro ao atualizar a senha!");
           }
           return resolve();
         }

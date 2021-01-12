@@ -4,6 +4,7 @@ const DateTime = require("luxon").DateTime;
 const { InvalidArgumentError } = require("../erros");
 const allowlistRefreshToken = require("../../redis/allowlist-refresh-token");
 const blacklistAccessToken = require("../../redis/blacklist-access-token");
+const listaRedefinicaoDeSenha = require("../../redis/lista-redefinicao-de-senha");
 
 function criaTokenJWT(id, [tempoQuantidade, tempoUnidade]) {
   const payload = { id };
@@ -68,7 +69,7 @@ module.exports = {
   access: {
     nome: "Access token",
     lista: blacklistAccessToken,
-    expiracao: [15, "m"],
+    expiracao: [15, "minutes"],
     cria(id) {
       return criaTokenJWT(id, this.expiracao);
     },
@@ -97,12 +98,24 @@ module.exports = {
 
   verificacaoEmail: {
     nome: "Verificação de email token",
-    expiracao: [1, "h"],
+    expiracao: [1, "hours"],
     cria(id) {
       return criaTokenJWT(id, this.expiracao);
     },
     verifica(token) {
       return verificaTokenJWT(token, null, this.nome);
+    },
+  },
+
+  redefinicaoDeSenha: {
+    nome: "Redefinição de senha token",
+    lista: listaRedefinicaoDeSenha,
+    expiracao: [1, "hours"],
+    cria(id) {
+      return criaTokenOpaco(id, this.expiracao, this.lista);
+    },
+    verifica(token) {
+      return verificaTokenOpaco(token, this.lista, this.nome);
     },
   },
 };

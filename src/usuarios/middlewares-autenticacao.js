@@ -8,19 +8,11 @@ module.exports = {
       "local",
       { session: false },
       (erro, usuario, info) => {
-        if (erro && erro.name === "InvalidArgumentError") {
-          return res.status(401).json({ erro: erro.message });
-        }
-
-        if (erro) {
-          return res.status(500).json({ erro: erro.message });
-        }
-
-        if (!!!usuario) {
-          return res.status(401).end();
-        }
+        if (erro) return next(erro);
 
         req.user = usuario;
+        req.estaAutenticado = true;
+
         next();
       }
     )(req, res, next);
@@ -31,26 +23,11 @@ module.exports = {
       "bearer",
       { session: false },
       (erro, usuario, info) => {
-        if (erro && erro.name === "JsonWebTokenError") {
-          return res.status(401).json({ erro: erro.message });
-        }
-
-        if (erro && erro.name === "TokenExpiredError") {
-          return res
-            .status(401)
-            .json({ erro: erro.message, expiredAt: erro.expiredAt });
-        }
-
-        if (erro) {
-          return res.status(500).json({ erro: erro.message });
-        }
-
-        if (!!!usuario) {
-          return res.status(401).end();
-        }
+        if (erro) return next(erro);
 
         req.user = usuario;
         req.token = info.token;
+        req.estaAutenticado = true;
         next();
       }
     )(req, res, next);
@@ -67,11 +44,7 @@ module.exports = {
 
       next();
     } catch (err) {
-      if (err.name === "InvalidArgumentError") {
-        return res.status(401).json({ error: err.message });
-      }
-
-      return res.status(500).json({ error: err.message });
+      next(err);
     }
   },
 
@@ -86,17 +59,7 @@ module.exports = {
 
       next();
     } catch (err) {
-      if (erro.nome === "JsonWebTokenError") {
-        return res.status(401).json({ erro: err.message });
-      }
-
-      if (erro.nome === "TokenExpiredError") {
-        return res
-          .status(401)
-          .json({ erro: err.message, expiredAt: err.expiredAt });
-      }
-
-      return res.status(500).json({ erro: err });
+      next(err);
     }
   },
 };

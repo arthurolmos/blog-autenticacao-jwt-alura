@@ -1,0 +1,260 @@
+{
+  "coverage": "2.2%",
+  "expectCount": 136,
+  "actualCount": 3,
+  "files": {
+    "src/controle-de-acesso.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        3
+      ]
+    },
+    "src/conversores.js": {
+      "expectCount": 17,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        12,
+        16,
+        26,
+        40,
+        41,
+        44,
+        45,
+        49,
+        50,
+        53,
+        54,
+        58,
+        59,
+        62,
+        63
+      ]
+    },
+    "src/erros.js": {
+      "expectCount": 15,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        5,
+        6,
+        10,
+        11,
+        13,
+        17,
+        18,
+        21,
+        22,
+        26,
+        27,
+        30,
+        31
+      ]
+    },
+    "src/middlewares/autorizacao.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        3
+      ]
+    },
+    "src/middlewares/manipulador-erros.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    },
+    "src/middlewares/tentar-autenticar.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/middlewares/tentar-autorizar.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/posts/posts-controlador.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "src/posts/posts-dao.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/posts/posts-modelo.js": {
+      "expectCount": 14,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        14,
+        19,
+        23,
+        32,
+        41,
+        49
+      ]
+    },
+    "src/posts/posts-rotas.js": {
+      "expectCount": 5,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    "src/usuarios/emails.js": {
+      "expectCount": 13,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        3,
+        17,
+        26,
+        35,
+        36,
+        47,
+        48,
+        51,
+        52,
+        53,
+        54,
+        55
+      ]
+    },
+    "src/usuarios/estrategias-autenticacao.js": {
+      "expectCount": 9,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        13
+      ]
+    },
+    "src/usuarios/middlewares-autenticacao.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    },
+    "src/usuarios/tokens.js": {
+      "expectCount": 15,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        8,
+        16,
+        26,
+        33,
+        42,
+        51,
+        55,
+        59,
+        63
+      ]
+    },
+    "src/usuarios/usuarios-controlador.js": {
+      "expectCount": 6,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        7
+      ]
+    },
+    "src/usuarios/usuarios-dao.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2
+      ]
+    },
+    "src/usuarios/usuarios-modelo.js": {
+      "expectCount": 21,
+      "actualCount": 3,
+      "undocumentLines": [
+        1,
+        2,
+        3,
+        4,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        38,
+        48,
+        53,
+        57,
+        66,
+        75,
+        79,
+        84
+      ]
+    },
+    "src/usuarios/usuarios-rotas.js": {
+      "expectCount": 3,
+      "actualCount": 0,
+      "undocumentLines": [
+        1,
+        2,
+        3
+      ]
+    },
+    "src/validacoes-comuns.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    }
+  }
+}

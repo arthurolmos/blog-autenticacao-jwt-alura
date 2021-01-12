@@ -18,7 +18,6 @@ module.exports = (lista) => {
 
     contemChave: async (chave) => {
       const resultado = await existsAsync(chave);
-      console.log("result", resultado);
       return resultado === 1;
     },
 
